@@ -1,0 +1,15 @@
+.circle {
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+  background-color: #ffa600;
+  cursor: pointer;
+  box-shadow: 0 0 0 3px #fff;
+  text-align: center;
+  & > span::before {
+    content: '';
+    display: inline-block;
+    padding-top: 100%;
+    vertical-align: middle;
+  }
+}

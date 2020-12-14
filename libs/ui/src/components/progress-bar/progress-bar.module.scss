@@ -1,0 +1,22 @@
+.progressbar {
+  height: 2px;
+  background-color: #dad6d6;
+}
+
+.stepContainer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY( -18px);
+  margin-bottom: 100px;
+
+}
+
+.bar {
+    width: 1%;
+    height: 4px;
+    background-color:  #ffa600;
+    max-width: calc(100% - 32px);
+  }
+
+

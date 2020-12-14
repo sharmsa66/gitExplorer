@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@git-explorer/home": ["libs/home/src/index.ts"],
+      "@git-explorer/gifs": ["libs/gifs/src/index.ts"],
+      "@git-explorer/ui": ["libs/ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
