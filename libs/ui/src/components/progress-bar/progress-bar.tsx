@@ -1,46 +1,51 @@
 import React, { useRef, useEffect, useCallback } from "react";
-import Step from '../step/step';
+import Circle from './circle/circle';
+import {Step}  from '@git-explorer/data';
 
 import classes from  './progress-bar.module.scss';
 
 /* eslint-disable-next-line */
-export interface ProgressBarProps {}
+export interface ProgressBarProps {
+  steps: [Step];
+  onStepActivated: (step:Step) => void;
+  stepIndex: number;
+}
 
-export function ProgressBar({ steps, onStepActivated, currentStep}) {
+export function ProgressBar(props:ProgressBarProps) {
   const barEl = useRef(null);
-  const totalSteps = steps.length - 1;
+  const totalSteps = props.steps.length - 1;
+  const steps: [Step] = props.steps;
 
-  const calculateBar = useCallback( (val) => {
-     const step = steps.find( step => step.id === val);
-     let idx = 0;
-     if(step) {
-        idx = step.id;
-     }
-     const  offset = Math.ceil(32 / totalSteps);
+  const calculateBar = useCallback( (step:Step) => {
+     const idx =  step.id  - 1
      const counterVal = Math.floor((100 / totalSteps) * idx);
-     return `calc(${counterVal}% - ${offset}px)`;
-  },[steps, totalSteps]);
+     return `calc(${counterVal}% )`;
+  },[ totalSteps]);
 
-  const clickHandler = useCallback( (val) => {
-    onStepActivated(val - 1);
-    barEl.current.style.width = calculateBar( val - 1);
-  },[calculateBar,onStepActivated]);
+  const clickHandler = useCallback( (step:Step) => {
+    props.onStepActivated(step);
+    barEl.current.style.width = calculateBar(step);
+  },[calculateBar, props]);
+
+
 
 
   useEffect(() => {
-    barEl.current.style.width = calculateBar();
-  }, [currentStep, calculateBar]);
+    if(props.stepIndex > -1){
+      barEl.current.style.width = calculateBar(props.steps[props.stepIndex]);
+    }
+
+  }, [props.steps,props.stepIndex, calculateBar]);
 
   return (
     <div className={classes.progressbar}>
-      <div className={classes.bar} ref={barEl}/>
+      <div className={classes.bar} ref={barEl} style={{backgroundColor:'red'}}/>
         <div className={classes.stepContainer}>
           {steps.map((stepItem) => (
-            <Step
+            <Circle
               key={stepItem.id}
               onCircleClick={clickHandler}
-              headerText={stepItem.id}
-              labelText={stepItem.name}
+              step={stepItem}
             />
           ))}
       </div>

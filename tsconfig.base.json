@@ -17,7 +17,8 @@
     "paths": {
       "@git-explorer/home": ["libs/home/src/index.ts"],
       "@git-explorer/gifs": ["libs/gifs/src/index.ts"],
-      "@git-explorer/ui": ["libs/ui/src/index.ts"]
+      "@git-explorer/ui": ["libs/ui/src/index.ts"],
+      "@git-explorer/data": ["libs/data/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
