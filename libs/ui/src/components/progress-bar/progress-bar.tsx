@@ -6,7 +6,7 @@ import classes from  './progress-bar.module.scss';
 
 /* eslint-disable-next-line */
 export interface ProgressBarProps {
-  steps: [Step];
+  steps: Array<Step>;
   onStepActivated: (step:Step) => void;
   stepIndex: number;
 }
@@ -14,7 +14,7 @@ export interface ProgressBarProps {
 export function ProgressBar(props:ProgressBarProps) {
   const barEl = useRef(null);
   const totalSteps = props.steps.length - 1;
-  const steps: [Step] = props.steps;
+  const steps: Array<Step> = props.steps;
 
   const calculateBar = useCallback( (step:Step) => {
      const idx =  step.id  - 1

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import classes from './user-info.module.scss';
 import { Input } from '@git-explorer/ui';
+import { useStore, useSelector } from 'react-redux';
 
 /* eslint-disable-next-line */
 export interface UserInfoProps {}

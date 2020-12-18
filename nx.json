@@ -51,6 +51,9 @@
     },
     "data": {
       "tags": []
+    },
+    "counter": {
+      "tags": []
     }
   }
 }

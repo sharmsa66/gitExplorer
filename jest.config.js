@@ -5,5 +5,6 @@ module.exports = {
     '<rootDir>/libs/gifs',
     '<rootDir>/libs/ui',
     '<rootDir>/libs/data',
+    '<rootDir>/libs/counter',
   ],
 };
