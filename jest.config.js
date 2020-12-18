@@ -6,5 +6,7 @@ module.exports = {
     '<rootDir>/libs/ui',
     '<rootDir>/libs/data',
     '<rootDir>/libs/counter',
+    '<rootDir>/apps/burger-builder',
+    '<rootDir>/libs/burger-builder-lib',
   ],
 };

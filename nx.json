@@ -54,6 +54,16 @@
     },
     "counter": {
       "tags": []
+    },
+    "burger-builder": {
+      "tags": []
+    },
+    "burger-builder-e2e": {
+      "tags": [],
+      "implicitDependencies": ["burger-builder"]
+    },
+    "burger-builder-lib": {
+      "tags": []
     }
   }
 }

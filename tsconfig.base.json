@@ -19,7 +19,10 @@
       "@git-explorer/gifs": ["libs/gifs/src/index.ts"],
       "@git-explorer/ui": ["libs/ui/src/index.ts"],
       "@git-explorer/data": ["libs/data/src/index.ts"],
-      "@git-explorer/counter": ["libs/counter/src/index.ts"]
+      "@git-explorer/counter": ["libs/counter/src/index.ts"],
+      "@git-explorer/burger-builder-lib": [
+        "libs/burger-builder-lib/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -293,6 +293,166 @@
           }
         }
       }
+    },
+    "burger-builder": {
+      "root": "apps/burger-builder",
+      "sourceRoot": "apps/burger-builder/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/burger-builder",
+            "index": "apps/burger-builder/src/index.html",
+            "main": "apps/burger-builder/src/main.tsx",
+            "polyfills": "apps/burger-builder/src/polyfills.ts",
+            "tsConfig": "apps/burger-builder/tsconfig.app.json",
+            "assets": [
+              "apps/burger-builder/src/favicon.ico",
+              "apps/burger-builder/src/assets"
+            ],
+            "styles": [
+              "apps/burger-builder/src/styles.scss"
+            ],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/burger-builder/src/environments/environment.ts",
+                  "with": "apps/burger-builder/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "burger-builder:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "burger-builder:build:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/burger-builder/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/burger-builder"
+          ],
+          "options": {
+            "jestConfig": "apps/burger-builder/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "burger-builder-e2e": {
+      "root": "apps/burger-builder-e2e",
+      "sourceRoot": "apps/burger-builder-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/burger-builder-e2e/cypress.json",
+            "tsConfig": "apps/burger-builder-e2e/tsconfig.e2e.json",
+            "devServerTarget": "burger-builder:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "burger-builder:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/burger-builder-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
+    },
+    "burger-builder-lib": {
+      "root": "libs/burger-builder-lib",
+      "sourceRoot": "libs/burger-builder-lib/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/burger-builder-lib/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/libs/burger-builder-lib",
+            "tsConfig": "libs/burger-builder-lib/tsconfig.lib.json",
+            "project": "libs/burger-builder-lib/package.json",
+            "entryFile": "libs/burger-builder-lib/src/index.ts",
+            "external": [
+              "react",
+              "react-dom"
+            ],
+            "babelConfig": "@nrwl/react/plugins/bundle-babel",
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/burger-builder-lib"
+          ],
+          "options": {
+            "jestConfig": "libs/burger-builder-lib/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
