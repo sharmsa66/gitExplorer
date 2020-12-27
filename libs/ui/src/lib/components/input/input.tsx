@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import classes from './input.module.scss';
+import classes from  './input.module.scss';
 
 export interface InputProps {
   label?: string;
@@ -18,7 +18,6 @@ export const Input: FC<InputProps> = ({
   name,
   elementConfig,
   handleInputChange,
-  ...props
 }) => {
   let inputElement;
 
@@ -38,6 +37,7 @@ export const Input: FC<InputProps> = ({
       inputElement = (
         <select
           value={value}
+          name={name}
           onChange={(event) => handleInputChange(event)}
           className={classes.InputElement}
         >
