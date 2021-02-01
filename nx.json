@@ -48,6 +48,12 @@
     "ui-e2e": {
       "tags": [],
       "implicitDependencies": ["ui"]
+    },
+    "data": {
+      "tags": []
+    },
+    "counter": {
+      "tags": []
     }
   }
 }
